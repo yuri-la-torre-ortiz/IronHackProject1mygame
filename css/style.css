@@ -1,4 +1,51 @@
-.alphabet{
-    height: 30;
-    width: 30;
+* {
+   margin: 0;
+   box-sizing: border-box; 
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* flex-start | flex-end | center | baseline | space-between | space-evenly | space-around */
+    justify-content: center;
+    /* flex-start | flex-end | center | baseline | stretch */
+    align-items: center;
+}
+
+.posterimage {
+    height: 100%;
+    width: 100%;
+    /* https://www.w3schools.com/cssref/pr_class_position.asp */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.hiddenWord {
+    height: 35%;
+    width: 50%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 2rem;
+}
+
+.alphabet {
+    width: 55%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.alphabet-button {
+    width: 10%;
+    height: 4rem;
+    margin: .5rem;
+}
+
+#movie-poster {
+    filter: blur(150px);
 }
