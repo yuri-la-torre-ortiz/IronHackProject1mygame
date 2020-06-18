@@ -4,7 +4,6 @@ let alphabetDiv = document.querySelector(".alphabet");
 let hiddenTitle = document.querySelector(".hiddenWord");
 let guessedLetters = [];  //Collect guessedLetters
 let incorrectGuesses = 0;
-let correctGuesses = 0;
 let mappedArray = movieObject(movies);
 const selectedMovie = randomSelect(mappedArray);
 
@@ -49,7 +48,6 @@ function randomSelect(movies) {
 }
 
 const selectedMovieLetters = selectedMovie.split(' ').filter(Boolean).join('');
-let counter = 0;
   
 function guess(character) {
   removeBtn(character);
@@ -57,16 +55,14 @@ function guess(character) {
     for (let i = 0; i < selectedMovie.length; i++) {
       if (character === selectedMovie[i]){
         guessedLetters[i] = selectedMovie[i];
-        counter++;
         document.querySelector(`.index${i}`).innerText = selectedMovie[i];
-        //renderCorrectGuesses(character);
       }
     }
   } else {
       incorrectGuesses++;
       console.log(`You are ${incorrectGuesses} out of 7 attempts closer to death.`);
   }
-  if incorrectGuesses === 7) {
+  if (incorrectGuesses === 7) {
     return console.log(`Game Over.  You're dead.`)
   }
   let newWord = guessedLetters.filter(Boolean).join('');
