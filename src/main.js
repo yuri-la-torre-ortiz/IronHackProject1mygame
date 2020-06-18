@@ -3,8 +3,8 @@ let alphaArr = alphabet.split('');
 let alphabetDiv = document.querySelector(".alphabet");
 let hiddenTitle = document.querySelector(".hiddenWord");
 let guessedLetters = [];  //Collect guessedLetters
-let maskedWord = ""; 
 let incorrectGuesses = 0;
+let correctGuesses = 0;
 let mappedArray = movieObject(movies);
 const selectedMovie = randomSelect(mappedArray);
 
@@ -49,7 +49,6 @@ function randomSelect(movies) {
 }
 
 const selectedMovieLetters = selectedMovie.split(' ').filter(Boolean).join('');
-let attempt = 0;
 let counter = 0;
   
 function guess(character) {
@@ -64,10 +63,10 @@ function guess(character) {
       }
     }
   } else {
-      attempt++;
-      console.log(`You are ${attempt} out of 7 attempts closer to death.`);
+      incorrectGuesses++;
+      console.log(`You are ${incorrectGuesses} out of 7 attempts closer to death.`);
   }
-  if (attempt === 7) {
+  if incorrectGuesses === 7) {
     return console.log(`Game Over.  You're dead.`)
   }
   let newWord = guessedLetters.filter(Boolean).join('');
