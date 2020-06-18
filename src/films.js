@@ -17,7 +17,7 @@ let movies = [
 `Dead Poets Society`,
 `Riding in Cars with Boys`,
 `Hail Satan`,
-`Borat: Cultural Learnings Of America For Make Benefit Glorious Nation Of Kazakhstan`,
+`Borat Cultural Learnings Of America For Make Benefit Glorious Nation Of Kazakhstan`,
 `Eternal Sunshine of the Spotless Mind`,
 `Confessions of a Shopaholic`,
 ];
