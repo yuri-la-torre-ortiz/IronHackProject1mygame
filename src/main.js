@@ -68,8 +68,9 @@ function guess(character) {
     }
   } else {
       incorrectGuesses++;
-      console.log(document.getElementById("hangman"))
+      if (incorrectGuesses === 1) {
       renderHangmanImage();
+      }
       console.log(`You are ${incorrectGuesses} out of 7 attempts closer to death.`);
   }
   if (incorrectGuesses === 7) {
