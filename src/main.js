@@ -15,11 +15,8 @@ function renderCorrectGuesses(letter) {
 }
 
 function renderHangmanImage() {
-  var hangman = document.getElementById("hangman");
-  var img  = document.createElement("img");
-  img.src = "assets/the-hanging.jpg";
-  hangman.appendChild(img);
-  img.style.width = "300px";
+  var hangman = document.querySelector(".hangman-image");
+  hangman.style.visibility = "visible";
 
 }
 
