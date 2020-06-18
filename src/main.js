@@ -11,8 +11,16 @@ const selectedMovie = randomSelect(mappedArray);
 function renderCorrectGuesses(letter) {
   let span = document.createElement("span");
   span.innerText = letter;
-  console.log(letter)
   hiddenTitle.appendChild(span);
+}
+
+function renderHangmanImage() {
+  var hangman = document.getElementById("hangman");
+  var img  = document.createElement("img");
+  img.src = "assets/the-hanging.jpg";
+  hangman.appendChild(img);
+  img.style.width = "300px";
+
 }
 
 function createBtn(letter) {
@@ -60,6 +68,8 @@ function guess(character) {
     }
   } else {
       incorrectGuesses++;
+      console.log(document.getElementById("hangman"))
+      renderHangmanImage();
       console.log(`You are ${incorrectGuesses} out of 7 attempts closer to death.`);
   }
   if (incorrectGuesses === 7) {
