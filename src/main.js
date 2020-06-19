@@ -97,7 +97,7 @@ function guess(character) {
   return newWord    
   }
 
-  selectedMovie.split('').forEach((letter, i) => {
+selectedMovie.split('').forEach((letter, i) => {
     let span = document.createElement("span");
     span.innerText = "_";
     span.classList.add(`index${i}`);
@@ -108,11 +108,11 @@ function guess(character) {
     if(letter === " "){
       span.innerText = " ";
     }
-  })
+})
 
-  function renderMessage(message){
+function renderMessage(message){
     let update = document.querySelector(`.message`)
     update.innerText = message;
     update.style.height = "60px";
 
-  }
+}
