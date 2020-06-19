@@ -84,14 +84,14 @@ function guess(character) {
         unblurHangmanImage(maxIncorrectGuesses);
       }
 
-      console.log(`You are ${incorrectGuesses} out of 7 attempts closer to death.`);
+      renderMessage(`You are ${incorrectGuesses} out of 7 attempts closer to death.`);
   }
   if (incorrectGuesses === 7) {
-    return console.log(`Game Over.  You're dead.`)
+    return renderMessage(`Game Over.  You're dead.`)
   }
   let newWord = guessedLetters.filter(Boolean).join('');
   if (newWord === selectedMovieLetters){
-    return console.log(`You win!!!`);
+    return renderMessage(`You win!!!`);
   }
   console.log(newWord);
   return newWord    
@@ -109,3 +109,10 @@ function guess(character) {
       span.innerText = " ";
     }
   })
+
+  function renderMessage(message){
+    let update = document.querySelector(`.message`)
+    update.innerText = message;
+    update.style.height = "60px";
+
+  }
