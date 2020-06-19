@@ -87,11 +87,11 @@ function guess(character) {
       renderMessage(`You are ${incorrectGuesses} out of 7 attempts closer to death.`);
   }
   if (incorrectGuesses === 7) {
-    return renderMessage(`Game Over.  You're dead.`)
+    renderMessage(`Game Over.  You're dead.`)
   }
   let newWord = guessedLetters.filter(Boolean).join('');
   if (newWord === selectedMovieLetters){
-    return renderMessage(`You win!!!`);
+    renderMessage(`You win!!!`);
   }
   console.log(newWord);
   return newWord    
