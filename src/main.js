@@ -6,7 +6,7 @@ let guessedLetters = []; //Collect guessedLetters
 let incorrectGuesses = 0;
 let maxIncorrectGuesses = 7;
 let mappedArray = movieObject(movies);
-const selectedMovie = randomSelect(mappedArray);
+const selectedMovie = randomSelect(mappedArray); 
 
 // function 
 function renderCorrectGuesses(letter) {
@@ -104,6 +104,7 @@ selectedMovie.split('').forEach((letter, i) => {
     span.style.flex = 1;
     span.style.flexWrap = "wrap";
     span.style.padding = '.55rem';
+    span.style.fontWeight = "800";
     hiddenTitle.appendChild(span);
     if(letter === " "){
       span.innerText = " ";
