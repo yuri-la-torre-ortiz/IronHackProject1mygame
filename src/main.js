@@ -2,8 +2,9 @@ let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let alphaArr = alphabet.split('');
 let alphabetDiv = document.querySelector(".alphabet");
 let hiddenTitle = document.querySelector(".hiddenWord");
-let guessedLetters = [];  //Collect guessedLetters
+let guessedLetters = []; //Collect guessedLetters
 let incorrectGuesses = 0;
+let maxIncorrectGuesses = 7;
 let mappedArray = movieObject(movies);
 const selectedMovie = randomSelect(mappedArray);
 
@@ -15,15 +16,25 @@ function renderCorrectGuesses(letter) {
 }
 
 function renderHangmanImage() {
-  var hangman = document.querySelector(".hangman-image");
+  var hangman = document.getElementById("hangman");
+  hangman.style.filter = "blur(100px)"
   hangman.style.visibility = "visible";
+}
 
+function unblurHangmanImage(degree){
+  var blur = degree * 100;
+  var hangman = document.getElementById("hangman");
+  hangman.style.filter = `blur(${blur}px)`  
 }
 
 function createBtn(letter) {
   let btn = document.createElement("button");
   btn.innerText = letter;
   btn.setAttribute('id', letter);
+  btn.className = 'alphabet-button'
+  btn.style.background = `url('assets/${letter.toUpperCase()}-wood.jpg')`
+  btn.style.height = "40px";
+  btn.style.width = "40px";
   btn.addEventListener("click", () => guess(letter))
   alphabetDiv.appendChild(btn);
 }
@@ -65,9 +76,14 @@ function guess(character) {
     }
   } else {
       incorrectGuesses++;
+      maxIncorrectGuesses--;
       if (incorrectGuesses === 1) {
       renderHangmanImage();
+      } else if (incorrectGuesses > 1 && incorrectGuesses <= 7){
+        console.log(maxIncorrectGuesses);
+        unblurHangmanImage(maxIncorrectGuesses);
       }
+
       console.log(`You are ${incorrectGuesses} out of 7 attempts closer to death.`);
   }
   if (incorrectGuesses === 7) {
@@ -84,7 +100,10 @@ function guess(character) {
   selectedMovie.split('').forEach((letter, i) => {
     let span = document.createElement("span");
     span.innerText = "_";
-    span.classList.add(`index${i}`)
+    span.classList.add(`index${i}`);
+    span.style.flex = 1;
+    span.style.flexWrap = "wrap";
+    span.style.padding = '.55rem';
     hiddenTitle.appendChild(span);
     if(letter === " "){
       span.innerText = " ";

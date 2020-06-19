@@ -1,3 +1,13 @@
+* {
+    margin:0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 .flex-container {
     display: flex;
     flex-direction: column;
@@ -5,8 +15,13 @@
     align-items: center;
 }
 .alphabet{
+    display: flex;
+    justify-content: space-evenly;
 }
 .hiddenWord{
+    display: flex;
+    padding: 2rem;
+    flex-wrap: wrap;
 
 }
 .poster-image{
